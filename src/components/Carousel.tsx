@@ -45,7 +45,7 @@ export default function Carousel() : JSX.Element {
     <div className="flex w-full py-8 overflow-x-scroll no-scrollbar">
         <div className="flex flex-nowrap ml-3">
           {services.map(({title, description, image} : IService ) => (
-            <div className="inline-block px-3">
+            <div key={title} className="inline-block px-3">
               <div
                 className="w-64 h-96 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                 <Image src={image} className='h-48' alt={description}/>
