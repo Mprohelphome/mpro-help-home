@@ -4,7 +4,7 @@ type colors = 'orange' | 'blue' | 'white';
 export interface ITitle {
   text: string;
   size?: 'xs' | 'md' | 'lg';
-  color?: colors
+  color?: colors | string
 }
 
 const baseClassName = "font-bold";
