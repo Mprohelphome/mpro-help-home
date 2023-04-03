@@ -5,7 +5,7 @@ type colors = "orange" | "default";
 export interface ICard {
   color: colors;
   children: string | JSX.Element | JSX.Element[]
-  className?: string;
+  className?: string | null | undefined;
 }
 
 export default function Card({ color = 'default', className = null, children} : ICard) : JSX.Element {
