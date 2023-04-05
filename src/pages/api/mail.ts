@@ -31,7 +31,7 @@ export default async function handler(
 
     
 
-    await smtp.send({
+    smtp.send({
       from: "teste@email.com",
       to: "teste@teste.com",
       text: data.description,
