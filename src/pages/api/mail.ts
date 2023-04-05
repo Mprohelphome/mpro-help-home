@@ -21,22 +21,28 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
   ) {
-    const data : IBody = req.body;
-    const smtp = new SMTPClient({
-      user: process.env.mail,
-      password: process.env.password,
-      host: 'smtp.gmail.com',
-      ssl:true
-    });
+    try {
+      const data : IBody = req.body;
+      const smtp = new SMTPClient({
+        user: process.env.mail,
+        password: process.env.password,
+        host: 'smtpout.secureserver.net',
+        ssl:true
+      });
 
-    
+      
 
-    smtp.send({
-      from: "teste@email.com",
-      to: "teste@teste.com",
-      text: data.description,
-      subject: "Solicitação de serviço"
-    }, (e, m) => console.log(e, m));
+      smtp.send({
+        from: "teste@email.com",
+        to: "teste@teste.com",
+        text: data.description,
+        subject: "Solicitação de serviço"
+      }, (e, m) => console.log(e, m));
 
-    return res.status(200).json({ success: true })
+      return res.status(200).json({ success: true })
+    } catch (error) {
+      console.log(error);
+
+      return res.status(200).json({ success: true })
+    }
 }

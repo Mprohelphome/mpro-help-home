@@ -11,6 +11,8 @@ export interface IContact {
   setCellphone: (value : string) => void;
   email: string;
   setEmail: (value : string) => void;
+  cep: string;
+  setCep: (value : string) => void;
 }
 
 export const ContactContext = createContext<IContact>({
@@ -24,6 +26,8 @@ export const ContactContext = createContext<IContact>({
   setCellphone: () => {},
   email: "",
   setEmail: () => {},
+  cep: "",
+  setCep: () => {},
 });
 
 export default function ContactProvider({ children } : any){
@@ -33,6 +37,7 @@ export default function ContactProvider({ children } : any){
   const [description, setDescription] = useState<string>("");
   const [cellphone, setCellphone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [cep, setCep] = useState<string>("");
 
   return (
     <ContactContext.Provider value={{
@@ -45,7 +50,9 @@ export default function ContactProvider({ children } : any){
       cellphone,
       setCellphone,
       email,
-      setEmail
+      setEmail,
+      cep,
+      setCep
     }}>
       {children}
     </ContactContext.Provider>

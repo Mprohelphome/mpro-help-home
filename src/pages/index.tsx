@@ -96,12 +96,16 @@ export default function Home() {
 
           <div className="grid  grid-cols-1 md:grid-cols-2 w-full  py-24">
             <div className='flex w-full flex-col px-8 md:px-24 gap-10'>
-              <div className="flex gap-1 flex-wrap mb-10">
+              <motion.div 
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{ duration: 0.8}}
+              className="flex gap-1 flex-wrap mb-10">
                 <Title text="Como" size='lg'/>
                 <Title text="trabalhamos" size='lg' color='orange'/>
                 <Title text="sua" size='lg'/>
                 <Title text="demanda?" size='lg'/>
-              </div>
+              </motion.div>
               {flows.map(({title, description, image} : IFlow) => (
               <Card key={title} color='orange' className='bg-white border-l-4 border-orange-500'>
                 <div className="flex flex-col md:flex-row w-full h-full gap-4">

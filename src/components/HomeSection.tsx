@@ -8,7 +8,7 @@ import Carousel from '@/components/Carousel'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { ContactContext, IContact } from '@/hook/contact.hook'
-
+import { motion } from 'framer-motion'
 export default function HomeSection() : JSX.Element {
 
   const { name, service, setName, setService } = useContext<IContact>(ContactContext);
@@ -18,9 +18,19 @@ export default function HomeSection() : JSX.Element {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-end pt-8 lg:pt-20 lg:flex-row w-full justify-around pb-48 gap-8">
+    <div className="flex flex-col items-end lg:px-10 pt-8 lg:flex-row w-full justify-around pb-48 gap-8 relative">
       <Carousel/>
-      <div className="flex w-full justify-center">
+      <motion.div 
+       initial={{
+         width: 0
+       }}
+       animate={{
+        width: "100%"
+       }}
+       transition={{
+        duration: 0.8
+       }}
+      className="flex w-full max-w-lg justify-center lg:justify-start h-full self-start lg:pt-20">
         <Card color="default" className='bg-white'>
           <div className="flex flex-col">
             <Title text='Comece seu' size='lg'/>
@@ -29,7 +39,7 @@ export default function HomeSection() : JSX.Element {
                 <Title text='aqui.' color='orange' size='lg'/>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 ">
             <Input placeholder="Nome Sobrenome" onChange={(ev : any) => setName(ev.target.value)}/>
             <Input placeholder="Serviço" onChange={(ev : any) => setService(ev.target.value)}/>
           </div>
@@ -41,7 +51,7 @@ export default function HomeSection() : JSX.Element {
               }}/>
           </div>
       </Card>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -9,8 +9,11 @@ import { motion } from 'framer-motion';
 import { useContext, useState } from 'react';
 import { ContactContext, IContact } from '@/hook/contact.hook';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 export default function Form() : JSX.Element{
+  const [isInvalid, setIsInvalid] = useState<boolean>(false);
+  const router = useRouter();
 
   const {
     email,
@@ -20,24 +23,43 @@ export default function Form() : JSX.Element{
     description,
     setDescription,
     name,
+    cep,
     setName,
+    setCep,
     service,
     setService
    } = useContext<IContact>(ContactContext);
 
    const [isLoading, setIsLoading] = useState<boolean>(false);
-
+   const variations = {
+    show: {
+      opacity: 1,
+    },
+    hide: {
+      opacity: 0
+    }
+   }
    async function handle(){ 
+    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const result: boolean = expression.test(email); 
+    const tel = cellphone.replaceAll(/[^0-9]/gi, '');
+    const address = cep.replaceAll(/[^0-9]/gi, '');
+    const validTel = tel.length >= 9 && tel.length <= 13;
+    if(!result || !validTel || !description || !name || address.length != 8)
+      return setIsInvalid(!isInvalid);
+
     setIsLoading(!isLoading);
 
-    await axios.post('/api/mail', {
+    const { data } = await axios.post('/api/mail', {
       email,
       cellphone,
       description,
       name
     });
 
-    setIsLoading(!isLoading);
+    setIsLoading(false)
+    setIsInvalid(false);
+    router.push('/agradecimento');
    }
 
   return (
@@ -56,20 +78,38 @@ export default function Form() : JSX.Element{
           <Title text='de serviço' size='lg' color='orange'/>
         </div>
         <div className="flex flex-col md:pl-12 gap-3">
+          <motion.b 
+            className='text-red-500'
+            variants={variations}
+            initial={'hide'} 
+            animate={isInvalid ? 'show' : 'hide'} 
+            transition={{ duration: 0.5}}
+            > 
+            Preencha  todos os campos corretamente!
+          </motion.b>
         <div className="flex w-full justify-around gap-3">
-          <Input placeholder='Nome Sobrenome' defaultValue={name} onChange={(ev : any) => setName(ev.target.value)}/>
+          <Input placeholder='Nome Sobrenome' defaultValue={name} onChange={(ev : any) => {
+            setName(ev.target.value);
+            setIsInvalid(false);
+          }}/>
           <InputMask mask="(99) 99999-9999" 
                      placeholder='Telefone' 
                      className='p-2 w-full rounded-full shadow-sm border-2  outline-none focus:border-orange-500'
                      value={cellphone}
-                     onChange={(ev : any) => setCellphone(ev.target.value)}
+                     onChange={(ev : any) =>{ setCellphone(ev.target.value); setIsInvalid(false);}}
                     />
         </div>
-        <div className="flex w-full ">
-          <Input defaultValue={email} placeholder='E-mail'  onChange={(ev : any) => setEmail(ev.target.value)}/>
+        <div className="flex flex-col lg:flex-row w-full gap-3">
+          <Input defaultValue={email} placeholder='E-mail'  onChange={(ev : any) => {setEmail(ev.target.value); setIsInvalid(false);}}/>
+          <InputMask mask="99999-999" 
+                     placeholder='CEP' 
+                     className='p-2 w-full lg:max-w-[120px] rounded-full shadow-sm border-2  outline-none focus:border-orange-500'
+                     value={cep}
+                     onChange={(ev : any) =>{ setCep(ev.target.value); setIsInvalid(false);}}
+                    />
         </div>
         <div className="flex w-full">
-          <textarea  value={description} onChange={(ev : any) => setDescription(ev.target.value)} cols={30} rows={3} className='resize-none w-full rounded-3xl p-5  border-2  outline-none' placeholder='Digite sobre o seu serviço'></textarea>
+          <textarea  value={description} onChange={(ev : any) => {setDescription(ev.target.value); setIsInvalid(false);}} cols={30} rows={3} className='resize-none w-full rounded-3xl p-5  border-2  outline-none' placeholder='Digite sobre o seu serviço'></textarea>
         </div>
         </div>
         <div className="flex justify-center w-full  md:pl-12 pt-3">
