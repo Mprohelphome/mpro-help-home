@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IoLogoWhatsapp } from 'react-icons/io';
 
 export default function ButtonWhatsapp() : JSX.Element {
-  const number = "11989877583";
+  const number = "+5511989877583";
   const text = "Olá, gostaria de solicitar um atendimento."; 
 
   return (

@@ -6,11 +6,13 @@ import logo from '../images/logo.svg';
 import wave from '../images/wave.svg';
 import Paragraph from '@/components/Paragraph'
 import HomeSection from '@/components/HomeSection'
+import { motion } from 'framer-motion';
 
 import image1 from '../images/1.svg';
 import image2 from '../images/2.svg';
 import image3 from '../images/3.svg';
 import security from '../images/security.svg';
+import { useRouter } from 'next/router';
 
 interface IFlow  {
   title: string;
@@ -19,6 +21,8 @@ interface IFlow  {
 }
 
 export default function Home() {
+
+  const router = useRouter();
 
   const flows : IFlow[] = [
     {
@@ -61,7 +65,12 @@ export default function Home() {
       <header className='flex w-full pl-8 pt-5'>
         <Image src={logo} alt='Help Home Logo'/>
       </header>
-      <main className='flex flex-col w-full h-full'>
+      <motion.main 
+      className='flex flex-col w-full h-full' 
+      initial={{ opacity: 0}} 
+      animate={{ opacity: 1}} 
+      transition={{ duration: 0.5}}
+      >
         <Image src={wave} className='absolute right-0 top-0 -z-10 hidden md:block' alt="wave decoration"/>
         <ButtonWhatsapp/>
         <HomeSection/>
@@ -124,7 +133,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
     </>
   )
 }
