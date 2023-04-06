@@ -1,5 +1,6 @@
 import * as animationData from "../success.json";
 import { motion } from 'framer-motion';
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Lottie from "react-lottie";
 
@@ -19,7 +20,13 @@ export default function Agradecimento(){
     router.push('/');
   }, 2999);
 
-  return (  <motion.div
+  return ( 
+    <>
+    <Head>
+      <link rel="icon" href="https://helphome.srv.br/wp-content/uploads/2021/08/cropped-favicon-32x32.png" sizes="32x32" />
+        <title>Agradecemos seu contato | Help Home São Paulo</title>
+    </Head>
+      <motion.div
         initial={{
           opacity: 0,
         }}
@@ -50,5 +57,7 @@ export default function Agradecimento(){
           
           </div>
         </div>
-      </motion.div>);
+      </motion.div>
+    </>
+  );
 }

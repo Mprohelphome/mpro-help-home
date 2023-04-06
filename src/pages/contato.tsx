@@ -10,6 +10,7 @@ import { useContext, useState } from 'react';
 import { ContactContext, IContact } from '@/hook/contact.hook';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function Form() : JSX.Element{
   const [isInvalid, setIsInvalid] = useState<boolean>(false);
@@ -54,15 +55,28 @@ export default function Form() : JSX.Element{
       email,
       cellphone,
       description,
+      cep,
       name
     });
 
     setIsLoading(false)
     setIsInvalid(false);
     router.push('/agradecimento');
+
+    setName("");
+    setCellphone("");
+    setEmail("");
+    setDescription("");
+    setService("");
+    setCep("");
    }
 
   return (
+    <>
+     <Head>
+      <link rel="icon" href="https://helphome.srv.br/wp-content/uploads/2021/08/cropped-favicon-32x32.png" sizes="32x32" />
+        <title>Formulário de Contato | Help Home São Paulo</title>
+    </Head>
     <motion.div 
       className="flex h-screen justify-center bg-gray-50"
       initial={{ opacity: 0}} 
@@ -119,5 +133,6 @@ export default function Form() : JSX.Element{
         </div>
       </div>
     </motion.div>
+    </>
   );
 }

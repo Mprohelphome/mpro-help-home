@@ -13,6 +13,7 @@ import image2 from '../images/2.svg';
 import image3 from '../images/3.svg';
 import security from '../images/security.svg';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 interface IFlow  {
   title: string;
@@ -62,6 +63,10 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+    <link rel="icon" href="https://helphome.srv.br/wp-content/uploads/2021/08/cropped-favicon-32x32.png" sizes="32x32" />
+      <title>Help Home São Paulo</title>
+    </Head>
       <header className='flex w-full pl-8 pt-5'>
         <Image src={logo} alt='Help Home Logo'/>
       </header>
