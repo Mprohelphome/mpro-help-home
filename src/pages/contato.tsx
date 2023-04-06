@@ -87,7 +87,7 @@ export default function Form() : JSX.Element{
         <Image src={formImage} className='max-h-screen' alt='Informe seu dados pessoais'/>
       </div>
       <div className="w-full bg-white max-w-lg flex flex-col justify-center rounded-lg p-3 shadow-lg">
-        <div className="flex md:px-12 mb-10">
+        <div className="flex md:px-12 mb-10 gap-1">
           <Title text='Formulário' size='lg'/>
           <Title text='de serviço' size='lg' color='orange'/>
         </div>

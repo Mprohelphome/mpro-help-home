@@ -34,13 +34,13 @@ export default function Carousel() : JSX.Element {
     },
     {
       id: 3,
-      title: "Impermealizacao",
+      title: "Telhado",
       description: "Os profissionais Help Home estão aptos a atender qualquer tipo de infiltração, onde efetuamos o teste de estanqueidade.",
       image: ipermealizacao
     },
     {
       id: 4,
-      title: "Gesso e DryWall",
+      title: "Pisos e azulejos",
       description: "Faça um contato com a Help Home e solicite um gesseiro profissional e capacitado tecnicamente para sua obra de redoma e construção.",
       image: drywall
     },
