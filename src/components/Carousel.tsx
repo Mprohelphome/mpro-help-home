@@ -1,8 +1,8 @@
 
 import pedreiro from '../images/pedreiro.webp';
-import pintor from '../images/pintor.webp';
-import ipermealizacao from '../images/ipermealizacao.webp';
-import drywall from '../images/drywall.webp';
+import pintor from '../images/construcao.jpg';
+import ipermealizacao from '../images/telhado.jpeg';
+import drywall from '../images/pisos.jpeg';
 
 import Image from 'next/image';
 import Title from './Title';
@@ -23,25 +23,25 @@ export default function Carousel() : JSX.Element {
     {
       id: 1,
       title: "Construção",
-      description: "Pintores qualificados para atuar com diversos tipos de superfície, material e condições, inclusive em altura.",
+      description: "Mão de obra especializada para fornecer as melhores soluções desde o projeto a entrega das chaves.",
       image: pintor
     },
     {
       id: 2,
       title: "Reforma",
-      description: "Nossos pedreiros possuem experiência em diversas áreas da construção civil, estão aptos a atuar com todo tipo de obras.",
+      description: "Equipe qualificada para dar cara nova ao seu imóvel em todos os aspectos necessários.",
       image: pedreiro
     },
     {
       id: 3,
       title: "Telhado",
-      description: "Os profissionais Help Home estão aptos a atender qualquer tipo de infiltração, onde efetuamos o teste de estanqueidade.",
+      description: "Executamos diversos tipos de telhados e formatos que que possam atender a necessidade do cliente.",
       image: ipermealizacao
     },
     {
       id: 4,
       title: "Pisos e azulejos",
-      description: "Faça um contato com a Help Home e solicite um gesseiro profissional e capacitado tecnicamente para sua obra de redoma e construção.",
+      description: "Assentamento de pisos, azulejos, porcelanatos e diversos outros revestimentos. Acabamento de altíssima qualidade.",
       image: drywall
     },
   ]
