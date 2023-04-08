@@ -18,7 +18,7 @@ export default function Agradecimento(){
 
   setTimeout(() => {
     router.push('/');
-  }, 2999);
+  }, 3999);
 
   return ( 
     <>

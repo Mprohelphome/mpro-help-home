@@ -5,6 +5,7 @@ export interface IButton extends React.HTMLAttributes<HTMLButtonElement>{
   text: string;
   icon?: JSX.Element;
   loading?: boolean;
+  pulsate?: boolean;
 }
 
 const spinner = () =>  <svg aria-hidden="true" className="w-4 h-4 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,10 +16,11 @@ const spinner = () =>  <svg aria-hidden="true" className="w-4 h-4 mr-2 text-gray
 
 export function Button(props : IButton) : JSX.Element {
 
-  const { text, icon, className, loading = false, ...otherProps } = props;
+  const { text, icon, className, loading = false, pulsate = false, ...otherProps } = props;
 
   return (
-    <button disabled={loading} className={`px-5 py-2 flex items-center justify-center gap-5  w-full shadow rounded-full font-semibold ${className} ${loading && 'opacity-80'}`} {...otherProps}> 
+    <button disabled={loading} className={`px-5 py-2 ${pulsate && 'animate-pulse'} flex items-center justify-center gap-5  w-full shadow rounded-full font-semibold ${className} ${loading && 'opacity-80'}`} {...otherProps}> 
+    
       {
         loading && 
         spinner()

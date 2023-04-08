@@ -14,6 +14,8 @@ import image3 from '../images/3.svg';
 import security from '../images/security.svg';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { ButtonOrange } from '@/components/Button';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 interface IFlow  {
   title: string;
@@ -79,7 +81,7 @@ export default function Home() {
         <Image src={wave} className='absolute right-0 top-0 -z-10 hidden md:block' alt="wave decoration"/>
         <ButtonWhatsapp/>
         <HomeSection/>
-        <div className="flex w-full relative justify-center py-28 bg-[#F9F9F9]">
+        <div  className="flex w-full relative justify-center pt-28 bg-[#F9F9F9]">
           <Card color='orange' className='absolute -top-20 bg-white'>
             <div className="grid grid-cols-2 divide-x divide-dashed divide-orange-500 ">
               <div className='flex flex-col items-center w-full text-center px-3'>
@@ -141,7 +143,13 @@ export default function Home() {
               </Card>))}
             </div>
           </div>
+          
         </div>
+         <div className="flex w-full  justify-center bg-[#F9F9F9] pb-48">
+            <div className="flex max-w-sm self-center">
+               <ButtonOrange text='Solicitar um orçamento' pulsate icon={<HiOutlineArrowNarrowRight/>} onClick={() => router.push('#contact')}/>
+            </div>
+         </div>
       </motion.main>
     </>
   )
