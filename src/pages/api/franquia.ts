@@ -156,7 +156,7 @@ const template = `<!DOCTYPE html>
 													<table class="heading_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>
 															<td class="pad" style="padding-bottom:30px;padding-left:60px;padding-right:60px;padding-top:30px;text-align:center;width:100%;">
-																<h2 style="margin: 0; color: #000000; direction: ltr; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Solicitação de atendimento - {{NOME}}</span></h2>
+																<h2 style="margin: 0; color: #000000; direction: ltr; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><span class="tinyMce-placeholder">Gostaria de ser uma franquia - {{NOME}}</span></h2>
 															</td>
 														</tr>
 													</table>
