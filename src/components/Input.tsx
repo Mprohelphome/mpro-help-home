@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 
 
 export interface IProps extends React.HTMLAttributes<HTMLInputElement> {
-  invalid?: boolean
+  invalid?: boolean;
 }
 
 export default function Input(props : IProps) : JSX.Element {

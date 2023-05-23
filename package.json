@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@types/axios": "^0.14.0",
     "@types/node": "18.15.11",
@@ -26,10 +27,13 @@
     "nodemailer": "^6.9.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-input-mask": "^2.0.4",
     "react-lottie": "^1.2.3",
-    "typescript": "5.0.3"
+    "react-resolver": "^3.1.2",
+    "typescript": "5.0.3",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/react-input-mask": "^3.0.2",
