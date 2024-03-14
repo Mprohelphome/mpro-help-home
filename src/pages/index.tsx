@@ -16,6 +16,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { ButtonOrange } from '@/components/Button';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import Carousel from '@/components/Carousel';
 
 interface IFlow  {
   title: string;
@@ -66,11 +67,11 @@ export default function Home() {
   return (
     <>
     <Head>
-    <link rel="icon" href="https://helphome.srv.br/wp-content/uploads/2021/08/cropped-favicon-32x32.png" sizes="32x32" />
-      <title>Help Home São Paulo</title>
+    <link rel="icon" href="favicon.png" sizes="32x32" />
+      <title>MPro São Paulo</title>
     </Head>
       <header className='flex w-full pl-8 pt-5'>
-        <Image src={logo} alt='Help Home Logo'/>
+        <Image src={logo} alt='MPRO Logo'/>
       </header>
       <motion.main 
       className='flex flex-col w-full h-full' 
@@ -81,6 +82,9 @@ export default function Home() {
         <Image src={wave} className='absolute right-0 top-0 -z-10 hidden md:block' alt="wave decoration"/>
         <ButtonWhatsapp/>
         <HomeSection/>
+        <div className="flex w-full mb-52 px-4">
+          <Carousel/>
+        </div>
         <div  className="flex w-full relative justify-center pt-28 bg-[#F9F9F9]">
           <Card color='orange' className='absolute -top-20 bg-white'>
             <div className="grid grid-cols-2 divide-x divide-dashed divide-orange-500 ">

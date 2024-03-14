@@ -14,13 +14,16 @@ export default function HomeSection() : JSX.Element {
 
   const { name, service, cellphone, setCellphone, setName, setService } = useContext<IContact>(ContactContext);
 
-  const number = "5511989877583";
+  const number = "552134003368";
   const text = "Olá, gostaria de solicitar um atendimento."; 
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-end lg:px-10 pt-8 lg:flex-row w-full justify-around pb-48 gap-8 relative">
-      <Carousel/>
+    <div className="flex flex-col items-center lg:px-10 pt-8 lg:flex-row w-full justify-around pb-48 gap-8 relative">
+      <div className="flex flex-col items-center px-4 text-center lg:text-start lg:gap-10 lg:justify-end">
+      <Title text='Construa o seu sonho conosco!' size='xxl' color='blue'/>
+      <Title text='Solicite um orçamento ou entre em contrato através do whatsapp!' size='lg' color='orange'/>
+      </div>
       <motion.div 
        initial={{
          width: 0

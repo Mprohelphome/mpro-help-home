@@ -345,7 +345,7 @@ export default async function handler(
       content = content.replace('{{CEP}}', data.cep);
       content = content.replace('{{LOCALIZACAO}}', data.location);
 
-      const email = "atendimento@helphomesp.com";
+      const email = "mpro.helphome@gmail.com";
        const transporter = nodemailer.createTransport({
          host: 'smtpout.secureserver.net',
         port: 465,
@@ -357,7 +357,7 @@ export default async function handler(
       });
 
       const mailOptions = {
-          from: "atendimento@helphomesp.com",
+          from: "mpro.helphome@gmail.com",
           to: email,
           subject: 'Olá eu sou ' + data.name + ' e gostaria de ser uma franquia!',
           html: content,
