@@ -3,6 +3,7 @@ import Title from '@/components/Title'
 import Card from '@/components/Card'
 import ButtonWhatsapp from '@/components/ButtonWhatsapp'
 import logo from '../images/logo.svg';
+import logoHelp from '../images/logo-help.svg';
 import wave from '../images/wave.svg';
 import Paragraph from '@/components/Paragraph'
 import HomeSection from '@/components/HomeSection'
@@ -71,7 +72,10 @@ export default function Home() {
       <title>MPro São Paulo</title>
     </Head>
       <header className='flex w-full pl-8 pt-5'>
+        <div className="flex flex-col">
         <Image src={logo} alt='MPRO Logo'/>
+        <Image src={logoHelp} alt='MPRO Logo'/>
+        </div>
       </header>
       <motion.main 
       className='flex flex-col w-full h-full' 
