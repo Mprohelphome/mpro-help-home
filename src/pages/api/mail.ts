@@ -345,19 +345,19 @@ export default async function handler(
       content = content.replace('{{CEP}}', data.cep);
       content = content.replace('{{DESCRICAO}}', data.description);
 
-      const email = "atendimento@helphomesp.com";
+      const email = "albertoaraujo@mprohelphome.com.br";
        const transporter = nodemailer.createTransport({
-         host: 'smtpout.secureserver.net',
+         host: 'smtppro.zoho.com',
         port: 465,
         secure: true,
         auth: {
           user: email,
-          pass: "Ma314159!",
+          pass: "Alaf2024",
         },
       });
 
       const mailOptions = {
-          from: "atendimento@helphomesp.com",
+          from: "albertoaraujo@mprohelphome.com.br",
           to: email,
           subject: 'Olá eu sou ' + data.name + ' e gostaria de um atendimento.',
           html: content,
